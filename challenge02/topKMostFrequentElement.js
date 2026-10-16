@@ -12,17 +12,26 @@
 
 
 
+
+
+
+
+/**
+ * 
+ * time complexity O(n)
+ * space complexity O(n)
+ */
 function topKFrequentElement(nums, k){
     if(k<=0) return [];
     const frequency = new Map();
 
     for(let num of nums){
         frequency.set(num, (frequency.get(num) || 0)+ 1);
-        console.log(frequency);
+        // console.log(frequency);
     }
 
     let bucket = Array.from({length: nums.length+1},() => []);
-    console.log(bucket);
+    // console.log(bucket);
     for(let [num,count] of frequency){
         bucket[count].push(num);
     }
@@ -43,3 +52,23 @@ function topKFrequentElement(nums, k){
 const nums = [1, 1, 1, 2, 2, 3];
 const k = 2;
 console.log(topKFrequentElement(nums,k));
+
+
+
+
+
+
+
+
+
+
+// HashMap + shorting
+function topKFrequentElementHashMap(nums, k){
+    let frequency = new Map();
+    for(let num of nums){
+        frequency.set(num, (frequency.get(num)||0)+1)
+    }
+    let result = [...frequency.entries()].sort((a,b) => b[1]-a[1]).slice(0,k).map(([num]) => num);
+    console.log(result)
+}
+console.log(topKFrequentElement(nums,k))
