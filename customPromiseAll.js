@@ -20,7 +20,9 @@ const result = await Promise.all([
 console.log(result);
 
 
-
+/**
+ * Time complexity: O(n)
+ */
 function myPromiseAll(promise){
     return new Promise((resolve, reject) => {
         const result = [];
