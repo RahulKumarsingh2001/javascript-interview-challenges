@@ -11,7 +11,7 @@
  // Expected: [10, 20, 30]
 
 
-
+// Induild method
 const result = await Promise.all([
     Promise.resolve(10),
     20,
